@@ -41,24 +41,3 @@ $(document).ready(function(){
             return false;
         });
 });
-
-
-// $(function() {
-//     $("#submit_login").click(function() { // if submit button is clicked
-//         $.ajax({ // JQuery ajax function
-//         type: "POST", // Submitting Method
-//         url: 'login.php', // PHP processor
-//         data: 'username='+ username + '&password=' + password, // the data that will be sent to php processor
-//         dataType: "html", // type of returned data
-//         success: function(data) { // if ajax function results success
-//         if (data == 0) { // if the returned data equal 0
-//         $('.errormess').html('Wrong Login Data'); // print error message
-//         } else { // if the reurned data not equal 0
-//         $('.errormess').html('<b style="color: green;">you are logged. wait for redirection</b>');// print success message   
-//         document.location.href = 'private.php'; // redirect to the private area  
-//         }
-//         }
-//        });
-//       return false;
-//       });
-//   });
