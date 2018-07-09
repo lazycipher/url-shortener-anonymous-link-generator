@@ -29,12 +29,12 @@ class dbFunction
 
     public function checkUrlExists($originalUrl){
         
-        $query = "SELECT * FROM shorturl WHERE originalUrl = '$originalUrl'";
-        $execute = mysqli_query($this->db->conn, $query);
+        
+        $execute = $this->db->conn->query("SELECT * FROM shorturl WHERE originalUrl = '$originalUrl'");
         $data = mysqli_fetch_array($execute, MYSQLI_ASSOC);
         $rows = mysqli_num_rows($execute);
         
-        echo "<br />";
+        
         
         if($rows){
             return $data['shortCode'];
@@ -68,8 +68,14 @@ class dbFunction
     public function genShortUrlLink($shortCode){
         $parent_dir = dirname(dirname($_SERVER['SCRIPT_NAME'])) . '/';
         $protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http';
-  		return "<a href='{$protocol}://{$_SERVER['HTTP_HOST']}/{$parent_dir}{$shortCode}'>{$protocol}://{$_SERVER['HTTP_HOST']}/{$parent_dir}{$shortCode}</a>";
+  		return "<a href='{$protocol}://{$_SERVER['HTTP_HOST']}/{$parent_dir}{$shortCode}' target='_blank'>{$protocol}://{$_SERVER['HTTP_HOST']}/{$parent_dir}{$shortCode}</a>";
 
+    }
+
+    public function getOriginalUrl($shortCode){
+        $execute = $this->db->conn->query("SELECT originalUrl FROM shorturl WHERE shortCode = '$shortCode' ");
+        $originalUrl = mysqli_fetch_array($execute, MYSQLI_ASSOC);
+        return $originalUrl['originalUrl'];
     }
 }
 

@@ -1,11 +1,10 @@
 <?php
-//$urlErr = "";
-//if(isset($_GET['submit'])){
-  //  $url = $_GET['url'];
-    //if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$url)) {
-      //  $urlErr = "Invalid URL";
-      //}
-//}
+$strurl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$url = parse_url($strurl, PHP_URL_QUERY);
+if (preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$url)) {
+    header("location:./refer.php?url=$url");
+}
+
 ?> 
 <!DOCTYPE html>
 <html>
