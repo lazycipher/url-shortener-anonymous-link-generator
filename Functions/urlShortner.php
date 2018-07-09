@@ -46,8 +46,7 @@ class dbFunction
 
     public function createNewShortUrl($originalUrl){
 
-        //$query = "INSERT INTO shorturl(originalUrl, creation) VALUES('$originalUrl',NOW())";
-        //$execute = mysqli_query($this->db->conn, $query);
+        
         $insertData = $this->db->conn->query("INSERT INTO shorturl(originalUrl, creation) VALUES('$originalUrl',NOW())");
         if($insertData){
             
@@ -73,6 +72,7 @@ class dbFunction
     }
 
     public function getOriginalUrl($shortCode){
+        $shortCode = mysqli_real_escape_string($this->db->conn, $shortCode);
         $execute = $this->db->conn->query("SELECT originalUrl FROM shorturl WHERE shortCode = '$shortCode' ");
         $originalUrl = mysqli_fetch_array($execute, MYSQLI_ASSOC);
         return $originalUrl['originalUrl'];
