@@ -33,6 +33,7 @@ $(document).ready(function(){
                 }
                 else{
                     $("#shortUrl").html(data);
+                    $("#qrcode").qrcode(data);
                 }
             }
             

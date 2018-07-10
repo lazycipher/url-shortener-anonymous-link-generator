@@ -67,7 +67,7 @@ class dbFunction
     public function genShortUrlLink($shortCode){
         $parent_dir = dirname(dirname($_SERVER['SCRIPT_NAME'])) . '/';
         $protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http';
-  		return "<a href='{$protocol}://{$_SERVER['HTTP_HOST']}/{$parent_dir}{$shortCode}' target='_blank'>{$protocol}://{$_SERVER['HTTP_HOST']}/{$parent_dir}{$shortCode}</a>";
+  		return "{$protocol}://{$_SERVER['HTTP_HOST']}/{$parent_dir}{$shortCode}";
 
     }
 

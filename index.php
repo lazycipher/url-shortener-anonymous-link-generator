@@ -1,4 +1,5 @@
 <?php
+
 $strurl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $url = parse_url($strurl, PHP_URL_QUERY);
 if (preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$url)) {
@@ -13,10 +14,11 @@ if (preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
+    <script type="text/javascript" src="./js/qrcode.js"></script>
 
 </head>
 <body>
-<h1>URL Shortner</h1>
+<h1 align="center">URL Shortner</h1>
 
 <div align="center">
         <form id="input-form" action="" method="POST">
@@ -29,8 +31,12 @@ if (preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z
                 <input type="submit" id="submit" name="submit" value="Submit">
             
               </form>
-
+              <br/>
+        
         <div id="shortUrl"></div>
+        <br/>
+        <br/>
+        <div id="qrcode"></div>
 </div>
 
 </body>
