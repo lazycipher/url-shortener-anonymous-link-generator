@@ -29,3 +29,6 @@ input.invalid, textarea.invalid{
 input.valid, textarea.valid{
 	border: 2px solid green;
 }
+.footer-links a{
+	color: #727c91
+}

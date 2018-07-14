@@ -13,7 +13,7 @@ class dbFunction
         $this->db->close();
     }
     public function urlValidate($originalUrl){
-        if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$originalUrl)) {
+        if (!preg_match( '/^(http|https):\\/\\/[a-z0-9_]+([\\-\\.]{1}[a-z_0-9]+)*\\.[_a-z]{2,5}'.'((:[0-9]{1,5})?\\/.*)?$/i',$originalUrl)) {
             return false;
           }
         else{
@@ -30,7 +30,7 @@ class dbFunction
     public function checkUrlExists($originalUrl){
         
         
-        $execute = $this->db->conn->query("SELECT * FROM shorturl WHERE originalUrl = '$originalUrl'");
+        $execute = $this->db->conn->query("SELECT * FROM shorten WHERE originalUrl = '$originalUrl'");
         $data = mysqli_fetch_array($execute, MYSQLI_ASSOC);
         $rows = mysqli_num_rows($execute);
         
@@ -47,33 +47,33 @@ class dbFunction
     public function createNewShortUrl($originalUrl){
 
         
-        $insertData = $this->db->conn->query("INSERT INTO shorturl(originalUrl, creation) VALUES('$originalUrl',NOW())");
+        $insertData = $this->db->conn->query("INSERT INTO shorten(originalUrl, creation) VALUES('$originalUrl',NOW())");
         if($insertData){
             
-            $getData = $this->db->conn->query("SELECT * FROM shorturl WHERE originalUrl = '$originalUrl'");
+            $getData = $this->db->conn->query("SELECT * FROM shorten WHERE originalUrl = '$originalUrl'");
             $data = mysqli_fetch_array($getData, MYSQLI_ASSOC);
         }
         else{
             return false;
         }
         $id = $data['id'];
-        $uniqueUrl = $this->genUniqueUrl($data['id']);
-        $updateData = $this->db->conn->query("UPDATE shorturl SET shortcode = '$uniqueUrl' WHERE id = '$id'");
+        $uniqueUrl = $this->genUniqueUrl($id);
+        $updateData = $this->db->conn->query("UPDATE shorten SET shortCode = '$uniqueUrl' WHERE id = '$id'");
         return $uniqueUrl;
 
 
     }
 
-    public function genShortUrlLink($shortCode){
-        $parent_dir = dirname(dirname($_SERVER['SCRIPT_NAME'])) . '/';
-        $protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http';
-  		return "{$protocol}://{$_SERVER['HTTP_HOST']}/{$parent_dir}{$shortCode}";
+    // public function genShortUrlLink($shortCode){
+    //     $parent_dir = dirname(dirname($_SERVER['SCRIPT_NAME'])) . '/';
+    //     $protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http';
+  	// 	return "{$protocol}://{$_SERVER['HTTP_HOST']}/{$parent_dir}{$shortCode}";
 
-    }
+    // }
 
     public function getOriginalUrl($shortCode){
         $shortCode = mysqli_real_escape_string($this->db->conn, $shortCode);
-        $execute = $this->db->conn->query("SELECT originalUrl FROM shorturl WHERE shortCode = '$shortCode' ");
+        $execute = $this->db->conn->query("SELECT originalUrl FROM shorten WHERE shortCode = '$shortCode' ");
         $originalUrl = mysqli_fetch_array($execute, MYSQLI_ASSOC);
         return $originalUrl['originalUrl'];
     }

@@ -3,17 +3,16 @@ include_once('./urlShortner.php');
 $dbFunc = new dbFunction();
 
 if(isset($_POST['url'])){
-    $originalUrl =  $dbFunc->urlValidate($_POST['url']);
+    $url = $_POST['url'];
+    $originalUrl =  $dbFunc->urlValidate($url);
     if(!$originalUrl){
-        echo "URL ERROR";
+        echo "0";
     }
     else{
         $uniqueCode = $dbFunc->checkUrlExists($originalUrl);
-        $shortUrlCode =  $dbFunc->genShortUrlLink($uniqueCode);
-        echo "$shortUrlCode";
+        
+        echo "$uniqueCode";
     }
 }
-
-
 
 ?>
