@@ -87,15 +87,17 @@ if (preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z
           </div><!-- /input-group -->
         </form>
         <div class="hidden" id="qrUrlShareWrap">
-          <div id="shortUrl" class="alert alert-success">
+          <div id="shortUrl" class="alert">
           </div>
           <div id="qrcode" class="">
           </div>
+          <div id="shareExt" class="">
           <p class="center">Share External</p>
             <a href="https://www.facebook.com/sharer.php" target="_blank"><img src="./images/icons/Facebook.png" height="32px" width="32px"></a>
             <a href="https://twitter.com/share" target="_blank"><img src="./images/icons/Twitter2.png" height="32px" width="32px"></a>
             <a href="https://www.linkedin.com/shareArticle?mini=true&url=" target="_blank"><img src="./images/icons/Linkedin.png" height="32px" width="32px"></a>
             <a href="https://plus.google.com/share" target="_blank"><img src="./images/icons/Google-Plus.png" height="32px" width="32px"></a>
+          </div>  
           <div id="Error" class="">
           </div>
         </div>
