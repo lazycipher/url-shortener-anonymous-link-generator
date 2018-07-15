@@ -32,3 +32,6 @@ input.valid, textarea.valid{
 .footer-links a{
 	color: #727c91
 }
+.hidden{
+	display: none;
+  }

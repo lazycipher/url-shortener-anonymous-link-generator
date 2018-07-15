@@ -48,7 +48,7 @@ $url = $dbFunc->getOriginalUrl($shortCode);
     <div class="container" align="center">
       <div class="col-lg-6">
         <div id="shortUrl" class="p-3 mb-2 bg-secondary text-white">
-        <h1>Redirecting to <a href="<?php echo $url; ?>" title="<?php echo $url; ?>" rel="noreferrer nofollow"><?php echo $url; ?></a>
+        <h4>Redirecting to <a href="<?php echo $url; ?>" title="<?php echo $url; ?>" rel="noreferrer nofollow"><?php echo $url; ?></a></h4>
         </div>
         </div>
       </div>

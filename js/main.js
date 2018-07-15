@@ -39,11 +39,16 @@ $(document).ready(function(){
                 }
                 else{
                     data = window.location.protocol+'//'+window.location.hostname+'/'+data;
-                    //data="http://shorten.gq/"+data;
-                    $('#shortUrl').addClass('alert alert-success')
-                    $("#shortUrl").html(data);
+                    var safeUrl = encodeURI(data);
+                    $('#qrUrlShareWrap').removeClass('hidden')
+                    $("#urlError").empty();
                     $("#qrcode").empty();
-                    $("#qrcode").qrcode(data);
+                    $("#qrcode").qrcode({width: 128,height: 128,text: data});
+                    $("#shortUrl").html(data);
+                    $("a[href='https://www.facebook.com/sharer.php']").attr('href', 'https://www.facebook.com/sharer.php?u='+safeUrl);
+                    $("a[href='https://plus.google.com/share']").attr('href', 'https://plus.google.com/share?url='+safeUrl);
+                    $("a[href='https://twitter.com/share']").attr('href', 'https://twitter.com/share?url='+safeUrl);
+                    $("a[href='https://www.linkedin.com/shareArticle?mini=true&url=']").attr('href', 'https://www.linkedin.com/shareArticle?mini=true&url='+safeUrl);
                 }
             }
             
