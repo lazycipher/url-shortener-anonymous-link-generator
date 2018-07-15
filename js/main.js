@@ -35,16 +35,18 @@ $(document).ready(function(){
                 if(data == 0){
                     $('#shortUrl').addClass('alert alert-danger').html('Invalid Url')
                     $("#qrcode").empty();
+                    $('#shareExt').addClass('hidden');
                     alert('Error: Invalid URL');
                 }
                 else{
                     data = window.location.protocol+'//'+window.location.hostname+'/'+data;
                     var safeUrl = encodeURI(data);
                     $('#qrUrlShareWrap').removeClass('hidden')
-                    $("#urlError").empty();
+                    $("#shortUrl").empty().removeClass('alert alert-danger').addClass('alert alert-success');
                     $("#qrcode").empty();
                     $("#qrcode").qrcode({width: 128,height: 128,text: data});
                     $("#shortUrl").html(data);
+                    $("#shareExt").removeClass('hidden');
                     $("a[href='https://www.facebook.com/sharer.php']").attr('href', 'https://www.facebook.com/sharer.php?u='+safeUrl);
                     $("a[href='https://plus.google.com/share']").attr('href', 'https://plus.google.com/share?url='+safeUrl);
                     $("a[href='https://twitter.com/share']").attr('href', 'https://twitter.com/share?url='+safeUrl);
