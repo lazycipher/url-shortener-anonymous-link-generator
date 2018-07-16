@@ -22,6 +22,7 @@ if (preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./vendor/bootstrap/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <style>
@@ -59,15 +60,18 @@ if (preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home
+              <a class="nav-link" href="#">Home <i class="fas fa-home"></i>
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://github.com/krypt0r/url-shortener-anonymous-link-generator">Github Repo</a>
+              <a class="nav-link" href="https://github.com/krypt0r/url-shortener-anonymous-link-generator">Github Repo <i class="fas fa-code-branch"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://gitter.im/krypt0r/URL-Shortner?utm_source=share-link&utm_medium=link&utm_campaign=share-link">Contact</a>
+              <a class="nav-link" href="https://gitter.im/krypt0r/URL-Shortner?utm_source=share-link&utm_medium=link&utm_campaign=share-link">Contact <i class="fas fa-at"></i></a>
+            </li>
+            <li class="nav-item round">
+              <a class="rounded nav-link bg-light text-dark" href="https://paypal.me/krypt0r/5USD" target="_blank" >Buy me a Coffee <i class="fas fa-coffee"></i></a>
             </li>
           </ul>
         </div>
@@ -82,7 +86,7 @@ if (preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z
           <div class="input-group">
             <input id="originalUrl" type="text" class="form-control" placeholder="Paste a link to shorten">
             <span class="input-group-btn">
-            <button class="btn btn-success" id="submit" type="submit">Shorten</button>
+            <button class="btn btn-success" id="submit" type="submit">Shorten <i class="fas fa-link" ></i></button>
             </span>
           </div><!-- /input-group -->
         </form>
@@ -94,7 +98,7 @@ if (preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z
                 <div class="input-group-append">
                 <br/>
                 <button id="clickToCopyButton" type="submit" class="btn btn-dark">
-                &nbsp;&nbsp;Copy
+                <i id="copyUrlIcon" class="fas fa-clipboard"></i>
                 </button>
                 </div>
         </div>
@@ -120,7 +124,7 @@ if (preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z
 
 
       <div class="footer-links">
-         <p class="text-white" style="a.color:white;"> <a href="https://github.com/krypt0r/url-shortener-anonymous-link-generator">GitHub Repo</a> | <a href="https://github.com/krypt0r">URL Shortener by Kryptor.</a></p>
+         <p class="text-white" style="a.color:white;"> <a href="https://github.com/krypt0r/url-shortener-anonymous-link-generator">GitHub Repo <i class="fas fa-code-branch" ></i> </a>  |  <a href="https://github.com/krypt0r">URL Shortener by Kryptor.</a> | <a class="rounded bg-light text-dark" href="https://paypal.me/krypt0r/5USD" target="_blank" >&nbsp;Buy me a Coffee <i class="fas fa-coffee"></i>&nbsp; </a></p>
           
 
 

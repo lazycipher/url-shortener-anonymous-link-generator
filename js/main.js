@@ -63,7 +63,7 @@ $(document).ready(function(){
             var copiedShortUrl = $('#shortUrlLink');
             copiedShortUrl.select();
             document.execCommand("copy");
-            $('#clickToCopyButton').html('Copied');
+            $('#copyUrlIcon').removeClass('fa-clipboard').addClass('fa-clipboard-check');
             });
 
         
