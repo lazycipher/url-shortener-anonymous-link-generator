@@ -86,9 +86,19 @@ if (preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z
             </span>
           </div><!-- /input-group -->
         </form>
+        <br/>
+        <br/>
         <div class="hidden" id="qrUrlShareWrap">
-          <div id="shortUrl" class="alert">
-          </div>
+        <div class="input-group mb-3">
+                <input id="shortUrlLink" type="text" class="form-control" placeholder="Recipient's username" value="Copied Text" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                <br/>
+                <button id="clickToCopyButton" type="submit" class="btn btn-dark">
+                &nbsp;&nbsp;Copy
+                </button>
+                </div>
+        </div>
+        <!-- Copy Short URL on CLick -->
           <div id="qrcode" class="">
           </div>
           <div id="shareExt" class="">
@@ -103,15 +113,16 @@ if (preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z
         </div>
     </div><!-- /.col-lg-6 -->
     </div>
+    <br/> <br/><br/> <br/><br/> <br/>
 <footer class="bs-docs-footer fixed-bottom bg-dark text-white">
 <div class="container" align="center">
 <div class="col-lg-6">
-<br/>
+
 
       <div class="footer-links">
-         <h5 class="text-white" style="a.color:white;"> <a href="https://github.com/krypt0r/url-shortener-anonymous-link-generator">GitHub Repo</a> | <a href="https://github.com/krypt0r">URL Shortener by Kryptor.</a></h5>
+         <p class="text-white" style="a.color:white;"> <a href="https://github.com/krypt0r/url-shortener-anonymous-link-generator">GitHub Repo</a> | <a href="https://github.com/krypt0r">URL Shortener by Kryptor.</a></p>
           
-<br/>
+
 
       </div>  
     </div><!-- /.col-lg-6 -->

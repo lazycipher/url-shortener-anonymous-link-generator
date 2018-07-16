@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
     $('#originalUrl').on('input', function(e) {
         var input=$(this);
@@ -42,10 +43,10 @@ $(document).ready(function(){
                     data = window.location.protocol+'//'+window.location.hostname+'/'+data;
                     var safeUrl = encodeURI(data);
                     $('#qrUrlShareWrap').removeClass('hidden')
-                    $("#shortUrl").empty().removeClass('alert alert-danger').addClass('alert alert-success');
+                    $("#shortUrlLink").empty().removeClass('alert alert-danger').addClass('alert alert-secondary');
                     $("#qrcode").empty();
                     $("#qrcode").qrcode({width: 128,height: 128,text: data});
-                    $("#shortUrl").html(data);
+                    $("#shortUrlLink").val(data);
                     $("#shareExt").removeClass('hidden');
                     $("a[href='https://www.facebook.com/sharer.php']").attr('href', 'https://www.facebook.com/sharer.php?u='+safeUrl);
                     $("a[href='https://plus.google.com/share']").attr('href', 'https://plus.google.com/share?url='+safeUrl);
@@ -58,4 +59,12 @@ $(document).ready(function(){
             });
             return false;
         });
+        $('#clickToCopyButton').click(function(){
+            var copiedShortUrl = $('#shortUrlLink');
+            copiedShortUrl.select();
+            document.execCommand("copy");
+            $('#clickToCopyButton').html('Copied');
+            });
+
+        
 });
