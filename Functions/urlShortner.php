@@ -46,8 +46,8 @@ class dbFunction
 
     public function createNewShortUrl($originalUrl){
 
-        
-        $insertData = $this->db->conn->query("INSERT INTO shorten(originalUrl, creation) VALUES('$originalUrl',NOW())");
+        $userIP = $this->get_client_ip();
+        $insertData = $this->db->conn->query("INSERT INTO shorten(originalUrl, creation, userIP) VALUES('$originalUrl',NOW(), '$userIP')");
         if($insertData){
             
             $getData = $this->db->conn->query("SELECT * FROM shorten WHERE originalUrl = '$originalUrl'");
@@ -76,6 +76,25 @@ class dbFunction
         $execute = $this->db->conn->query("SELECT originalUrl FROM shorten WHERE shortCode = '$shortCode' ");
         $originalUrl = mysqli_fetch_array($execute, MYSQLI_ASSOC);
         return $originalUrl['originalUrl'];
+    }
+    // Function to get the client IP address
+    public function get_client_ip() {
+        $ipaddress = '';
+        if (getenv('HTTP_CLIENT_IP'))
+            $ipaddress = getenv('HTTP_CLIENT_IP');
+        else if(getenv('HTTP_X_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+        else if(getenv('HTTP_X_FORWARDED'))
+            $ipaddress = getenv('HTTP_X_FORWARDED');
+        else if(getenv('HTTP_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_FORWARDED_FOR');
+        else if(getenv('HTTP_FORWARDED'))
+           $ipaddress = getenv('HTTP_FORWARDED');
+        else if(getenv('REMOTE_ADDR'))
+            $ipaddress = getenv('REMOTE_ADDR');
+        else
+            $ipaddress = 'UNKNOWN';
+        return $ipaddress;
     }
 }
 
