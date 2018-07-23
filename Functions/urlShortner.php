@@ -73,8 +73,10 @@ class dbFunction
 
     public function getOriginalUrl($shortCode){
         $shortCode = mysqli_real_escape_string($this->db->conn, $shortCode);
-        $execute = $this->db->conn->query("SELECT originalUrl FROM shorten WHERE shortCode = '$shortCode' ");
+        $execute = $this->db->conn->query("SELECT originalUrl, hits FROM shorten WHERE shortCode = '$shortCode' ");
         $originalUrl = mysqli_fetch_array($execute, MYSQLI_ASSOC);
+        $hits = $originalUrl['hits']+1;
+        $hitsCounter = $this->db->conn->query("UPDATE shorten SET hits = '$hits' WHERE shortCode = '$shortCode'");
         return $originalUrl['originalUrl'];
     }
     // Function to get the client IP address
