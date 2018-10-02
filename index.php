@@ -86,7 +86,7 @@ if (preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z
           <div class="input-group">
             <input id="originalUrl" type="text" class="form-control" placeholder="Paste a link to shorten">
             <span class="input-group-btn">
-            <button class="btn btn-success" id="submit" type="submit">Shorten <i class="fas fa-link" ></i></button>
+            <button class="btn btn-success" id="submit" type="submit" style="margin-left: 10px;">Shorten <i class="fas fa-link" ></i></button>
             </span>
           </div><!-- /input-group -->
         </form>
