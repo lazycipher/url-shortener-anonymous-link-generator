@@ -9,7 +9,7 @@ A PHP tool to shorten urls and generate anonymous links. It shortens the url and
 `example.com/?https://othersite.com`
 
 
-### DEMO : [URL Shortner](http://shorten.gq) and  [AnonRef](https://anonref.me/)
+### DEMO : [URL Shortner](http://shorten.gq)
 
 #### I'm not a Front End Dev So, UI is not attractive. Btw You Can Contribute to it's UI. :)
 Join Chat Room : [![Join the chat at https://gitter.im/krypt0r/URL-Shortner](https://badges.gitter.im/synox/disposable-mailbox.svg)](https://gitter.im/krypt0r/URL-Shortner)
